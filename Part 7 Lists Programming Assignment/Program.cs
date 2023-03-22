@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Security.Cryptography;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace Part_7_Lists_Programming_Assignment
@@ -7,19 +9,64 @@ namespace Part_7_Lists_Programming_Assignment
     {
         static void Main(string[] args)
         {
+            string choice = "";
+
+            while (choice != "q")
+            {
+                Console.Clear();
+                Console.WriteLine("Please select an option:");
+                Console.WriteLine();
+                Console.WriteLine("1 - Part One: List of Integers");
+                Console.WriteLine("2 - Part Two: List of Strings");
+                Console.WriteLine("---------------");
+                Console.WriteLine("Q - Quit");
+                Console.WriteLine();
+
+                choice = Console.ReadLine().ToLower().Trim();
+                Console.WriteLine();
+                if (choice == "1")
+                {
+                    Console.WriteLine("You chose Part One: List of Integers");
+                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.ReadLine();
+                    PartOne();
+                }
+                else if (choice == "2")
+                {
+                    Console.WriteLine("You chose Part Two: List of Strings");
+                    Console.WriteLine("Hit ENTER to continue.");
+                    Console.ReadLine();
+                    PartTwo();
+                }                
+                else if (choice == "q")
+                {
+                    choice = "q";
+                }
+                else
+                {
+                    Console.WriteLine("Invalid choice, press ENTER to continue.");
+                    Console.ReadLine();
+                }
+            }
+        }
+        public static void PartOne()
+        {
+            //Part 1: List of Integers//
+            Console.Clear();
             Random generator = new Random();
             string choice = "";
             string num;
             int num_;
+            int randomTotal = 0;
             while (choice != "q")
             {
-                List<int> randomNum = new List<int>();  
+                List<int> randomNum = new List<int>();
                 Console.WriteLine("                          ----Random-Numbers----");
                 for (int i = 0; i < 25; i++)
                 {
-                randomNum.Add(generator.Next(10, 21));               
-                Console.Write(randomNum[i] + ",");
-                }                
+                    randomNum.Add(generator.Next(10, 21));
+                    Console.Write(randomNum[i] + ",");
+                }
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("Choose an option:");
@@ -30,8 +77,8 @@ namespace Part_7_Lists_Programming_Assignment
                 Console.WriteLine("5: Count the number of a specified number");
                 Console.WriteLine("6: Print the largest value");
                 Console.WriteLine("7: Print the smallest value");
-                Console.WriteLine("8: Print the sum and average");               
-                Console.WriteLine("9: Quit");              
+                Console.WriteLine("8: Print the sum and average");
+                Console.WriteLine("Q: Quit");
                 choice = Console.ReadLine().ToLower().Trim();
                 Console.WriteLine();
                 if (choice == "1")
@@ -63,12 +110,12 @@ namespace Part_7_Lists_Programming_Assignment
                 {
                     Console.WriteLine("Type the number you want removed:");
                     num = Console.ReadLine();
-                    if (Int32.TryParse(num, out int result))                       
+                    if (Int32.TryParse(num, out int result))
                     {
                         num_ = Convert.ToInt32(num);
                         //randomNum.RemoveAll(num_);
                         for (int i = 0; i < 24; i++)
-                        {                            
+                        {
                             Console.Write(randomNum[i] + ",");
                         }
                         Console.WriteLine("");
@@ -98,27 +145,64 @@ namespace Part_7_Lists_Programming_Assignment
                         Console.WriteLine("Hit Enter to return to main menu:");
                         Console.ReadLine();
                         Console.Clear();
-                    }                    
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice, press ENTER to continue.");
+                        Console.ReadLine();
+                    }
                 }
                 else if (choice == "5")
                 {
-
+                    Console.WriteLine("Type the number you want to be checked for:");
+                    num = Console.ReadLine();
+                    if (Int32.TryParse(num, out int result))
+                    {
+                        num_ = Convert.ToInt32(num);
+                        //randomNum.FindAll(num_);
+                        //Console.WriteLine($"There are {containsNum} number {num_} in this line");
+                        Console.WriteLine("");
+                        Console.WriteLine("Hit Enter to return to main menu:");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Invalid choice, press ENTER to continue.");
+                        Console.ReadLine();
+                    }
                 }
                 else if (choice == "6")
                 {
-
+                    randomNum.Sort();
+                    Console.WriteLine($"The largest value is: {randomNum[randomNum.Count - 1]}");
+                    Console.WriteLine("");
+                    Console.WriteLine("Hit Enter to return to main menu:");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
                 else if (choice == "7")
                 {
-
+                    randomNum.Sort();
+                    Console.WriteLine($"The smallest value is: {randomNum[0]}");
+                    Console.WriteLine("");
+                    Console.WriteLine("Hit Enter to return to main menu:");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
                 else if (choice == "8")
                 {
-
-                }
-                else if (choice == "9")
-                {
-
+                    for (int i = 0; i < 25; i++)
+                    {
+                        randomTotal += randomNum[i];
+                    }
+                    Console.Write($"The total sum is: {randomTotal}");
+                    Console.WriteLine("");
+                    Console.WriteLine($"The average is: {randomTotal / 25}");
+                    Console.WriteLine("");
+                    Console.WriteLine("Hit Enter to return to main menu:");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
                 else if (choice == "q")
                 {
@@ -129,7 +213,13 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("Invalid choice, press ENTER to continue.");
                     Console.ReadLine();
                 }
-            }           
-        }   
+
+            }
+        }
+        
+        public static void PartTwo()
+        {
+            //Part 2: List of Strings//
+        }
     }
 }
