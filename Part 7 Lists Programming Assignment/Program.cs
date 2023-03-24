@@ -299,6 +299,7 @@ namespace Part_7_Lists_Programming_Assignment
                 Console.WriteLine("4: Add a vegetable");
                 Console.WriteLine("5: Sort list");
                 Console.WriteLine("Q: Quit");
+                //add clear the list part
                 choice = Console.ReadLine().ToLower().Trim();
                 Console.WriteLine();
                 if (choice == "1")
