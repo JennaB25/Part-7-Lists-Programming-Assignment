@@ -61,15 +61,19 @@ namespace Part_7_Lists_Programming_Assignment
             string num;
             int num_;
             int randomTotal = 0;
-            List<int> randomNum = new List<int>();
-            Console.WriteLine("                          ----Random-Numbers----");
+            int containsNum = 0;
+            List<int> randomNum = new List<int>();        
             for (int i = 0; i < 25; i++)
             {
-                randomNum.Add(generator.Next(10, 21));
-                Console.Write(randomNum[i] + ",");
+                randomNum.Add(generator.Next(10, 21));                
             }
             while (choice != "q")
-            {
+            {                
+                Console.WriteLine("                          ----Random-Numbers----");
+                for (int i = 0; i < randomNum.Count; i++)
+                {
+                    Console.Write(randomNum[i] + ",");
+                }                
                 Console.WriteLine("");
                 Console.WriteLine("");
                 Console.WriteLine("Choose an option:");
@@ -95,25 +99,20 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("Hit Enter to return to main menu:");
                     Console.ReadLine();
                     Console.Clear();
-                    Console.WriteLine("                          ----Random-Numbers----");
-                    for (int i = 0; i < randomNum.Count; i++)
-                    {
-                        Console.Write(randomNum[i] + ",");
-                    }                    
+                                       
                 }
                 else if (choice == "2")
-                {                
-                    Console.WriteLine("");
-                    Console.WriteLine("Hit Enter to return to main menu:");
-                    Console.ReadLine();
-                    Console.Clear();
-                    Console.WriteLine("                          ----Random-Numbers----");
+                {                                                   
                     randomNum.Clear();
                     for (int i = 0; i < 25; i++)
                     {
                         randomNum.Add(generator.Next(10, 21));
                         Console.Write(randomNum[i] + ",");
                     }
+                    Console.WriteLine("");
+                    Console.WriteLine("Hit Enter to return to main menu:");
+                    Console.ReadLine();
+                    Console.Clear();
                 }
                 else if (choice == "3")
                 {
@@ -122,7 +121,7 @@ namespace Part_7_Lists_Programming_Assignment
                     if (Int32.TryParse(num, out int result))
                     {
                         num_ = Convert.ToInt32(num);
-                        //randomNum.RemoveAll(num_);
+                        while(randomNum.Remove(num_));
                         for (int i = 0; i < randomNum.Count; i++)
                         {
                             Console.Write(randomNum[i] + ",");
@@ -130,23 +129,13 @@ namespace Part_7_Lists_Programming_Assignment
                         Console.WriteLine("");
                         Console.WriteLine("Hit Enter to return to main menu:");
                         Console.ReadLine();
-                        Console.Clear();
-                        Console.WriteLine("                          ----Random-Numbers----");
-                        for (int i = 0; i < randomNum.Count; i++)
-                        {
-                            Console.Write(randomNum[i] + ",");
-                        }                 
+                        Console.Clear();                                        
                     }
                     else
                     {
                         Console.WriteLine("Invalid choice, press ENTER to continue.");
                         Console.ReadLine();
                         Console.Clear();
-                        Console.WriteLine("                          ----Random-Numbers----");
-                        for (int i = 0; i < randomNum.Count; i++)
-                        {
-                            Console.Write(randomNum[i] + ",");
-                        }                      
                     }
                 }
                 else if (choice == "4")
@@ -164,23 +153,13 @@ namespace Part_7_Lists_Programming_Assignment
                         Console.WriteLine("");
                         Console.WriteLine("Hit Enter to return to main menu:");
                         Console.ReadLine();
-                        Console.Clear();
-                        Console.WriteLine("                          ----Random-Numbers----");
-                        for (int i = 0; i < randomNum.Count; i++)
-                        {
-                            Console.Write(randomNum[i] + ",");
-                        }                      
+                        Console.Clear();                                          
                     }
                     else
                     {
                         Console.WriteLine("Invalid choice, press ENTER to continue.");
                         Console.ReadLine();
-                        Console.Clear();
-                        Console.WriteLine("                          ----Random-Numbers----");
-                        for (int i = 0; i < randomNum.Count; i++)
-                        {
-                            Console.Write(randomNum[i] + ",");
-                        }                    
+                        Console.Clear();                                           
                     }
                 }
                 else if (choice == "5")
@@ -190,28 +169,21 @@ namespace Part_7_Lists_Programming_Assignment
                     if (Int32.TryParse(num, out int result))
                     {
                         num_ = Convert.ToInt32(num);
-                        //randomNum.FindAll(num_);
-                        //Console.WriteLine($"There are {containsNum} number {num_} in this line");
+                        //andomNum.Count(num_)
+                        //{
+                            //containsNum += 1;
+                        //}
+                        Console.WriteLine($"There are {containsNum} number {num_} in this line");
                         Console.WriteLine("");
                         Console.WriteLine("Hit Enter to return to main menu:");
                         Console.ReadLine();
-                        Console.Clear();
-                        Console.WriteLine("                          ----Random-Numbers----");
-                        for (int i = 0; i < randomNum.Count; i++)
-                        {
-                            Console.Write(randomNum[i] + ",");
-                        }                       
+                        Console.Clear();                                             
                     }
                     else
                     {
                         Console.WriteLine("Invalid choice, press ENTER to continue.");
                         Console.ReadLine();
-                        Console.Clear();
-                        Console.WriteLine("                          ----Random-Numbers----");
-                        for (int i = 0; i < randomNum.Count; i++)
-                        {
-                            Console.Write(randomNum[i] + ",");
-                        }                     
+                        Console.Clear();                                         
                     }
                 }
                 else if (choice == "6")
@@ -221,12 +193,7 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("");
                     Console.WriteLine("Hit Enter to return to main menu:");
                     Console.ReadLine();
-                    Console.Clear();
-                    Console.WriteLine("                          ----Random-Numbers----");
-                    for (int i = 0; i < randomNum.Count; i++)
-                    {
-                        Console.Write(randomNum[i] + ",");
-                    }                 
+                    Console.Clear();                
                 }
                 else if (choice == "7")
                 {
@@ -235,12 +202,7 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("");
                     Console.WriteLine("Hit Enter to return to main menu:");
                     Console.ReadLine();
-                    Console.Clear();
-                    Console.WriteLine("                          ----Random-Numbers----");
-                    for (int i = 0; i < randomNum.Count; i++)
-                    {
-                        Console.Write(randomNum[i] + ",");
-                    }                    
+                    Console.Clear();                  
                 }
                 else if (choice == "8")
                 {
@@ -254,12 +216,7 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("");
                     Console.WriteLine("Hit Enter to return to main menu:");
                     Console.ReadLine();
-                    Console.Clear();
-                    Console.WriteLine("                          ----Random-Numbers----");
-                    for (int i = 0; i < randomNum.Count; i++)
-                    {
-                        Console.Write(randomNum[i] + ",");
-                    }                   
+                    Console.Clear();                                  
                 }
                 else if (choice == "q")
                 {
@@ -283,9 +240,10 @@ namespace Part_7_Lists_Programming_Assignment
             int input_;
             bool done = false;
             int num;
-            List<string> vegNames = new List<string>() { "null", "CABBAGE", "CARROT", "CELERY", "MUSHROOM", "POTATO" };
+            List<string> vegNames = new List<string>() { "", "CABBAGE", "CARROT", "CELERY", "MUSHROOM", "POTATO" };
             while (choice != "q")
-            {               
+            {
+                done = false;
                 Console.WriteLine("----Vegetables----");
                 for (int i = 1; i < vegNames.Count; i++)
                 {
@@ -298,41 +256,69 @@ namespace Part_7_Lists_Programming_Assignment
                 Console.WriteLine("3: Search for a vegetable");
                 Console.WriteLine("4: Add a vegetable");
                 Console.WriteLine("5: Sort list");
-                Console.WriteLine("Q: Quit");
-                //add clear the list part
+                Console.WriteLine("6: Clear the list");
+                Console.WriteLine("Q: Quit");              
                 choice = Console.ReadLine().ToLower().Trim();
                 Console.WriteLine();
                 if (choice == "1")
                 {
                     Console.WriteLine("Type the index of the vegteble you want removed:");
-                    input = Console.ReadLine().ToUpper();                
-                    input_ = Convert.ToInt32(input);
-                    if (input_ >= 1 || input_ <= vegNames.Count)
+                    input = Console.ReadLine().ToUpper();
+                    if (Int32.TryParse(input, out int result))
                     {
-                        vegNames.RemoveAt(input_);
+                        input_ = Convert.ToInt32(input);
+                        //if (vegNames.Contains(""))
+                        //{
+                            //Console.WriteLine("List is empty:");
+                            //Console.WriteLine("");
+                            //Console.WriteLine("Hit Enter to return to main menu:");
+                            //Console.ReadLine();
+                            //Console.Clear();
+                        //}
+                        if (input_ == 0)
+                        {
+                            Console.WriteLine("Error: Invalid Input");
+                        }                        
+                        else if (input_ >= 1 || input_ <= vegNames.Count)
+                        {
+                            vegNames.RemoveAt(input_);
+                            Console.WriteLine("");
+                            Console.WriteLine("Hit Enter to return to main menu:");
+                            Console.ReadLine();
+                            Console.Clear();
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: Invalid Input");
+                        }
+                        //fix crashing problem when no items are in the list
                     }
                     else
                     {
+                        Console.WriteLine("");
                         Console.WriteLine("Error: Invalid Input");
-                    }               
-                    Console.WriteLine("");
-                    Console.WriteLine("Hit Enter to return to main menu:");
-                    Console.ReadLine();
-                    Console.Clear(); 
-                    //fix index of zero problem
+                        Console.WriteLine("Hit Enter to return to main menu:");
+                        Console.ReadLine();
+                        Console.Clear();
+                    }                                       
                 }
                 else if (choice == "2")
                 {
-                    Console.WriteLine("Type the name of the vegteble you want removed:");
-                    input = Console.ReadLine().ToUpper();
-                    if (vegNames.Contains(input))
-                    {
-                        vegNames.Remove(input);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error: Name not included");
-                    }
+                    Console.WriteLine("Type the name of the vegteble you want removed:");                                     
+                        input = Console.ReadLine().ToUpper();                       
+                        if (input == "")
+                        {
+                            Console.WriteLine("Error: Invalid Input");                            
+                        }
+                        else if (vegNames.Contains(input))
+                        {
+                            vegNames.Remove(input);
+                            done = true;
+                        }                       
+                        else
+                        {
+                            Console.WriteLine("Error: Name not included");                           
+                        }                                      
                     Console.WriteLine("");
                     Console.WriteLine("Hit Enter to return to main menu:");
                     Console.ReadLine();
@@ -343,7 +329,11 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("Enter the vegetable you want to locate:");
                     input = Console.ReadLine().ToUpper();
                     Console.WriteLine("");
-                    if (vegNames.Contains(input))                   
+                    if (input == "")
+                    {
+                        Console.WriteLine("Error: Invalid Input");
+                    }
+                    else if (vegNames.Contains(input))                   
                     {
                         num = vegNames.BinarySearch(input);
                         Console.WriteLine($"It is included at position: {num}");
@@ -367,6 +357,10 @@ namespace Part_7_Lists_Programming_Assignment
                         {
                             Console.WriteLine("Error: Enter choice again");
                         }
+                        else if (input == "q")
+                        {
+                            done = true;
+                        }
                         else
                         {
                             vegNames.Add(input);
@@ -381,8 +375,7 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("");
                     Console.WriteLine("Hit Enter to return to main menu:");
                     Console.ReadLine();
-                    Console.Clear();
-                    //problem with skipping entering another name after six names are listed
+                    Console.Clear();            
                 }
                 else if (choice == "5")
                 {
@@ -394,8 +387,15 @@ namespace Part_7_Lists_Programming_Assignment
                     Console.WriteLine("");
                     Console.WriteLine("Hit Enter to return to main menu:");
                     Console.ReadLine();
+                    Console.Clear();                  
+                }
+                else if (choice == "6")
+                {
+                    vegNames.Clear();
+                    Console.WriteLine("");
+                    Console.WriteLine("Hit Enter to return to main menu:");
+                    Console.ReadLine();
                     Console.Clear();
-                    //fix the fact that null is being listed in sorted list
                 }
                 else if (choice == "q")
                 {
