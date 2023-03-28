@@ -168,10 +168,10 @@ namespace Part_7_Lists_Programming_Assignment
                     num = Console.ReadLine();
                     if (Int32.TryParse(num, out int result))
                     {
-                        num_ = Convert.ToInt32(num);
-                        //andomNum.Count(num_)
+                        num_ = Convert.ToInt32(num);                      
+                        //randomNum.Count(num_)
                         //{
-                            //containsNum += 1;
+                        //containsNum += 1;
                         //}
                         Console.WriteLine($"There are {containsNum} number {num_} in this line");
                         Console.WriteLine("");
@@ -266,15 +266,7 @@ namespace Part_7_Lists_Programming_Assignment
                     input = Console.ReadLine().ToUpper();
                     if (Int32.TryParse(input, out int result))
                     {
-                        input_ = Convert.ToInt32(input);
-                        //if (vegNames.Contains(""))
-                        //{
-                            //Console.WriteLine("List is empty:");
-                            //Console.WriteLine("");
-                            //Console.WriteLine("Hit Enter to return to main menu:");
-                            //Console.ReadLine();
-                            //Console.Clear();
-                        //}
+                        input_ = Convert.ToInt32(input);                       
                         if (input_ == 0)
                         {
                             Console.WriteLine("Error: Invalid Input");
