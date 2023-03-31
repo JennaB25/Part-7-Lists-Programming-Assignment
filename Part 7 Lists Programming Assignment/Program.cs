@@ -168,12 +168,19 @@ namespace Part_7_Lists_Programming_Assignment
                     num = Console.ReadLine();
                     if (Int32.TryParse(num, out int result))
                     {
-                        num_ = Convert.ToInt32(num);                      
-                        //randomNum.Count(num_)
-                        //{
-                        //containsNum += 1;
-                        //}
-                        Console.WriteLine($"There are {containsNum} number {num_} in this line");
+                        num_ = Convert.ToInt32(num);
+                        for (int i = 0; i < randomNum.Count; i++)
+                        {
+                            if (randomNum[i].Equals(num_))
+                            {
+                                containsNum += 1;
+                            }
+                            else
+                            {
+                                //
+                            }
+                        }
+                        Console.WriteLine($"There are {containsNum} number {num_}'s in this line");
                         Console.WriteLine("");
                         Console.WriteLine("Hit Enter to return to main menu:");
                         Console.ReadLine();
@@ -282,8 +289,7 @@ namespace Part_7_Lists_Programming_Assignment
                         else
                         {
                             Console.WriteLine("Error: Invalid Input");
-                        }
-                        //fix crashing problem when no items are in the list
+                        }                     
                     }
                     else
                     {
